@@ -1,0 +1,32 @@
+ShopBundle\Entity\Product:
+    product_{1..10}:
+        title: <productTitle()>
+        quantity: <numberBetween(0, 100)>
+        price: <floatBetween(100, 1000)>
+        oldPrice: <floatBetween(200, 2000)>
+        description: <text(100)>
+        createdDate: '<dateTimeBetween("-200 days", "now")>'
+
+    product_{10..15}:
+        title: <productTitle()>
+        quantity: <numberBetween(0, 100)>
+        price: <floatBetween(100, 1000)>
+        oldPrice: <floatBetween(200, 2000)>
+        description: <text(80)>
+        createdDate: '<dateTimeBetween("-200 days", "now")>'
+
+    product_{15..20}:
+        title: <productTitle()>
+        quantity: <numberBetween(0, 100)>
+        price: <floatBetween(100, 1000)>
+        oldPrice: <floatBetween(0, 100)>
+        description: <text(50)>
+        createdDate: '<dateTimeBetween("-200 days", "now")>'
+
+    product_{20..25}:
+        title: <productTitle()>
+        quantity: 0
+        price: <floatBetween(100, 1000)>
+        oldPrice: <floatBetween(0, 100)>
+        description: <text(50)>
+        createdDate: '<dateTimeBetween("-200 days", "now")>'

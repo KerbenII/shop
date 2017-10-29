@@ -1,0 +1,20 @@
+{% extends "ShopBundle:Default:base.html.twig" %}
+
+{% block title %}Add new Product{% endblock %}
+
+{% block body %}
+    <div class="col-md-9 col-sm-7">
+        <div class="content-form-page">
+            <h1>Add new Product</h1>
+            {{ form_start(productForm) }}
+            {{ form_row(productForm.title) }}
+            {{ form_row(productForm.quantity) }}
+            {{ form_row(productForm.price) }}
+            {{ form_row(productForm.oldPrice) }}
+            {{ form_row(productForm.description) }}
+            {{ form_row(productForm.createdDate) }}
+            <button type="submit" class="btn btn-primary">Save</button>
+            {{ form_end(productForm) }}
+        </div>
+    </div>
+{% endblock %}

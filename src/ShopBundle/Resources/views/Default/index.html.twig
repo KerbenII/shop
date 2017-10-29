@@ -1,0 +1,62 @@
+{% extends "ShopBundle:Default:base.html.twig" %}
+{% do pagination.setTemplate('ShopBundle:Pagination:sliding.html.twig') %}
+{% block title %} Welcome to our store! {% endblock %}
+
+{% block body %}
+    <!-- BEGIN SALE PRODUCT & NEW ARRIVALS -->
+    <div class="row margin-bottom-40">
+        <!-- BEGIN SALE PRODUCT -->
+        <div class="col-md-12 sale-product">
+            <h2>Our Products</h2>
+            {% for product in pagination %}
+                <div class="col-sm-6 col-xs-12">
+                    <div class="product-item">
+                        <div class="pi-img-wrapper">
+                            <img src="{{ asset('img/products/model1.jpg') }}" class="img-responsive" alt="{{ product.title|e }}">
+                            <div>
+                                <a href="{{ asset('img/products/model1.jpg') }}" class="btn btn-default fancybox-button">Zoom</a>
+                                <a href="{{ url('shop_product_show',  {'id': product.id}) }}" class="btn btn-default fancybox-fast-view">View</a>
+                            </div>
+                        </div>
+                        <h3><a href="{{ url('shop_product_show',  {'id': product.id}) }}">{{ product.title|e }}</a></h3>
+                        <div class="pi-price">{{ product.price|number_format }} zł</div>
+                        <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <!-- END SALE PRODUCT -->
+    </div>
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+    <!-- END SALE PRODUCT & NEW ARRIVALS -->
+{% endblock %}
+
+
+    {% block stylesheets %}
+        <link href="{{ asset('plugins/fancybox/source/jquery.fancybox.css') }}" rel="stylesheet">
+        <link href="{{ asset('plugins/owl.carousel/assets/owl.carousel.css') }}" rel="stylesheet">
+    {% endblock %}
+
+    {% block javascripts %}
+        <script src="{{ asset('plugins/fancybox/source/jquery.fancybox.pack.js') }}" type="text/javascript"></script><!-- pop up -->
+        <script src="{{ asset('plugins/owl.carousel/owl.carousel.min.js') }}" type="text/javascript"></script><!-- slider for products -->
+        <script src="{{ asset('plugins/zoom/jquery.zoom.min.js') }}" type="text/javascript"></script><!-- product zoom -->
+        <script src="{{ asset('plugins/bootstrap-touchspin/bootstrap.touchspin.js') }}" type="text/javascript"></script><!-- Quantity -->
+
+        <script src="{{ asset('js/layout.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('js/bs-carousel.js') }}" type="text/javascript"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+                Layout.init();
+                Layout.initOWL();
+                Layout.initImageZoom();
+                Layout.initTouchspin();
+                Layout.initTwitter();
+
+                Layout.initFixHeaderWithPreHeader();
+                Layout.initNavScrolling();
+            });
+        </script>
+    {% endblock %}

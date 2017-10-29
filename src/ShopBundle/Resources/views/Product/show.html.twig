@@ -1,0 +1,52 @@
+{% extends "ShopBundle:Default:base.html.twig" %}
+
+{% block title %}ShopBundle:Product:show{% endblock %}
+
+{% block body %}
+    <div class="col-md-9 col-sm-7">
+        <div class="product-page">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="product-main-image">
+                        <img src="{{ asset('img/products/model7.jpg') }}" alt="{{ product.title|e }}" class="img-responsive" data-BigImgsrc="{{ asset('img/products/model7.jpg') }}">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <h1>{{ product.title|e }}</h1>
+                    <div class="price-availability-block clearfix">
+                        <div class="price">
+                            <strong>{{ product.price|number_format }}</strong><span> zł</span>
+                                {% if product.price < product.oldPrice %}
+                            <em><span>{{ product.oldPrice|number_format }}</span> zł</em>
+                                {% endif %}
+                        </div>
+                        <div class="availability">
+                            Availability:
+
+                            <strong>
+                                {% if product.quantity > 0 %}
+                                In Stock
+                                {% else %}
+                                Not Available
+                                {% endif %}
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <p>{{ product.description }}</p>
+                    </div>
+                    {% if product.quantity > 0 %}
+                    <div class="product-page-cart">
+                        <div class="product-quantity">
+                            <input id="product-quantity" type="text" value="1" readonly class="form-control input-sm">
+                        </div>
+                        <button class="btn btn-primary" type="submit">Add to cart</button>
+
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT -->
+{% endblock %}
