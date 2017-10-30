@@ -3,6 +3,7 @@
 namespace ShopBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Product
@@ -25,34 +26,47 @@ class Product
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255,
+     *      minMessage = "Title must be above {{ limit }} chars",
+     *      maxMessage = "Title has too be longer than {{ limit }} characters"
+     * )
      */
     private $title;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="quantity", type="integer")
+     * @ORM\Column(name="quantity", type="integer", precision=0)
+     * @Assert\GreaterThan(0)
      */
     private $quantity;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="price", type="float")
+     * @ORM\Column(name="price", type="float", precision=2)
+     * @Assert\GreaterThan(0.00, message="price must be greater than 0.00")
      */
     private $price;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="oldPrice", type="float")
+     * @ORM\Column(name="oldPrice", type="float", precision=2)
+     * @Assert\GreaterThan(0.00, message="oldPrice must be grater than 0.00")
      */
     private $oldPrice;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=100)
+     * @ORM\Column(name="description", type="text")
+     * @Assert\Length(
+     *     min = 100,
+     *     minMessage = "Product description max be above {{ limit }} characters"
+     * )
      */
     private $description;
 

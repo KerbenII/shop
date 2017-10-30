@@ -236,6 +236,20 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
 
 <div class="main">
     <div class="container">
+        {% for flashMessage in app.session.flashbag.get('error') %}
+
+            <div class="alert alert-danger">
+                <strong>Danger!</strong> {{ flashMessage }}
+            </div>
+
+        {% endfor %}
+
+        {% for flashMessage in app.session.flashbag.get('success') %}
+            <div class="alert alert-success">
+                <strong>Success!</strong> {{ flashMessage }}
+            </div>
+        {% endfor %}
+
         {% block body %}
         {% endblock %}
     </div>

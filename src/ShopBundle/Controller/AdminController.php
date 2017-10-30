@@ -23,14 +23,30 @@ class AdminController extends Controller
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+
             $product = $form->getData();
             $em = $this->getDoctrine()->getManager();
             $em->persist($product);
             $em->flush();
+
             $this->addFlash(
                 'success',
                 sprintf('Product added succesfully')
             );
+
+            $message = (new \Swift_Message('Hello Email'))
+                ->setFrom('noreply@wegrzynek.org')
+                ->setTo('fake@example.com')
+                ->setBody(
+                    $this->renderView(
+                        'ShopBundle:Emails:productAdded.html.twig',
+                        array('product' => $product)
+                    ),
+                    'text/html'
+                );
+
+            $this->get('mailer')->send($message);
+
             return $this->redirectToRoute('shop_default_index');
         }
         return $this->render('ShopBundle:Admin:add_product.html.twig', [
