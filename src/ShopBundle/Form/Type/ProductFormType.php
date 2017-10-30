@@ -1,6 +1,6 @@
 <?php
 
-namespace ShopBundle\Form;
+namespace ShopBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;

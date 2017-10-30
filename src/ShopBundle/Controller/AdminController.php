@@ -2,7 +2,7 @@
 
 namespace ShopBundle\Controller;
 
-use ShopBundle\Form\ProductFormType;
+use ShopBundle\Form\Type\ProductFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
