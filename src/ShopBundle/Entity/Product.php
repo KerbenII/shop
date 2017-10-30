@@ -65,7 +65,7 @@ class Product
      * @ORM\Column(name="description", type="text")
      * @Assert\Length(
      *     min = 100,
-     *     minMessage = "Product description max be above {{ limit }} characters"
+     *     minMessage = "Product description must be above {{ limit }} characters"
      * )
      */
     private $description;
