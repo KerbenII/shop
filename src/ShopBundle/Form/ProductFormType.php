@@ -12,6 +12,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProductFormType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -35,8 +39,7 @@ class ProductFormType extends AbstractType
             ->add('createdDate', DateType::class, [
                 'widget' => 'single_text',
                 'label' => 'Data utworzenia'
-            ])
-        ;
+            ]);
     }
     public function configureOptions(OptionsResolver $resolver)
     {

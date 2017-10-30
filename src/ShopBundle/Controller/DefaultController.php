@@ -4,12 +4,14 @@ namespace ShopBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
     /**
-     * @var integer $page
      * @Route("/{page}")
+     * @param integer $page page number
+     * @return Response
      */
     public function indexAction($page = 1)
     {

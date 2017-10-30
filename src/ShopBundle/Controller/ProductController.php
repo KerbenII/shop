@@ -4,6 +4,7 @@ namespace ShopBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class ProductController
@@ -14,6 +15,8 @@ class ProductController extends Controller
 {
     /**
      * @Route("/show/{id}")
+     * @param integer $id product identificator
+     * @return Response
      */
     public function showAction($id = 1)
     {

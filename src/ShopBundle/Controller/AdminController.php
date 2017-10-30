@@ -6,6 +6,7 @@ use ShopBundle\Form\ProductFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class AdminController
@@ -16,6 +17,8 @@ class AdminController extends Controller
 {
     /**
      * @Route("/new-product")
+     * @param Request $request
+     * @return Response
      */
     public function addProductAction(Request $request)
     {
