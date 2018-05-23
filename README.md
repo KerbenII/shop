@@ -1,26 +1,25 @@
-#Przykładowy  sklep w oparciu o Symfony 3.2
+# Example Store Bundle (Based on Symfony 3.2 Framework)
 
 ![SensioLabs Insights Silver Medal](https://d15hperv2jcnaj.cloudfront.net/assets/vb4e0a03ee2/bundles/insight/img/medals/with-ribbon/medal-silver.png)
 
-**Po co?** Mamy aktualnie 2017 rok. Na rynku dostępnych jest kilkaset tysięcy platform
-e-commerce.
-Po co więc kolejna?
+**Why?** We are currently in 2017. Several hundred thousand platforms are available on the e-commerce market.
+Why, then, I am building next one?
 
-Ponieważ autor tego kodu jest głodny wiedzy i... kolejnych wyzwań :-)
-I chce przetstować swoje umiejętności robiąc coś fajnego.
+Because the author of this code is hungry for knowledge and... the next challenges :-)
+And he wants to test his skills by doing something cool.
 
-## Uwaga:
+## Warning:
 
-Poniższy kod jest wersją wszesnorozwojową, nie nadającą się do jakichkolwiek zastosowań produkcyjnych (!)
+This code is REALLY a developmental version which is not suitable for any production application (!)
 
-## Funkcjonalności:
+## Features:
 
-- HTTP Base Authentication (logowanie i wylogowanie)
-- Formularz dodawania produktów
-    - z walidacją
-    - z ładnym Bootstrapowym wyglądem
-- Wyświetlanie produktów
-    - w kolejności od najnowszego
-    - z obsługą paginacji
-- Fixtury produktów
-- Templatka HTML5 
+- HTTP Base Authentication (log in system)
+- Form in which You can add another product
+    - with validation
+    - based on Bootstrap
+- Product Displaying
+    - newest first
+    - with pagination support
+- Products fixtures
+- HTML5 template
